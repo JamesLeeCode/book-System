@@ -114,6 +114,9 @@
                     <a href="#close" class='forum-title' name = "abc" onclick="document.getElementById('userLogin').style.display='block'" >
                       Login
                     </a>
+                    <a href="#close" class='forum-title' name = "abc" onclick="document.getElementById('resetPassword').style.display='block'" >
+                      Forgot My Password
+                    </a>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -227,6 +230,12 @@
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="" name="password" required>
 
+      <label for="uname"><b>Security Question</b></label>
+      <input type="text" placeholder="Your first Pet Name" name="q1" required>
+
+      <label for="uname"><b>Security Question</b></label>
+      <input type="text" placeholder="Your favorite school teacher’s name" name="q2" required>
+
       <button name="userLogin" id="userLogin" type="submit">Register</button>
 
     </div>
@@ -269,6 +278,41 @@
     </form>
   </div>
 
+  <div id="resetPassword" class="modal">
+
+    <form class="modal-content animate" action="phpScripts/auth.php" method="post">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('resetPassword').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="images/slider-img.png" alt="Avatar" class="avatar">
+        <center>  <h4>
+            Reset Password
+          </h4></center>
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Student Number</b></label>
+        <input type="text" placeholder="Enter Username" name="email" required>
+        <input type="text" value="passwordRest" name="type" hidden>
+
+        <label for="uname"><b>Security Question</b></label>
+        <input type="text" placeholder="Your first Pet Name" name="q1" required>
+
+        <label for="uname"><b>Security Question</b></label>
+        <input type="text" placeholder="Your favorite school teacher’s name" name="q2" required>
+
+
+        <label for="psw"><b>New Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Reset Password</button>
+
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button name="adminLogin" id="resetPassword" type="button" onclick="document.getElementById('adminLogin').style.display='none'" class="cancelbtn">Cancel</button>
+      </div>
+    </form>
+  </div>
 
   <style>
   body {font-family: Arial, Helvetica, sans-serif;}

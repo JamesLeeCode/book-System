@@ -355,7 +355,7 @@ $conn = OpenCon();
       <span onclick="document.getElementById('reserved').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="images/slider-img.png" alt="Avatar" class="avatar">
       <center>  <h4>
-            Books returns
+            Books Reserved
         </h4></center>
     </div>
 
@@ -383,13 +383,12 @@ $conn = OpenCon();
                </div>
               <div class="card-footer text-muted">
                   <div class="row">
-
-            <form class="col-md-6" action="phpScripts/adminOparations.php" method="post">
+              <form class="col-md-6" action="phpScripts/adminOparations.php" method="post">
                   <input type="text" value="checkoutTwo" name="type" hidden>
                   <input type="text" value="<?php echo  $row['book_ID']; ?>" name="book_ID" hidden>
                   <input type="text" value="<?php echo  $row['reserver']; ?>" name="reserver" hidden>
               <button   class="btn btn-outline-secondary" type="submit">Check-Out Book </button>
-            </form>
+             </form>
               </div>
                 </div>
               </div>

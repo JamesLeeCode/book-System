@@ -133,6 +133,8 @@
           $sql = "SELECT * FROM books WHERE isbn LIKE '%$phase%' OR title LIKE '%$phase%' OR author LIKE '%$phase%' OR category LIKE '%$phase%' ";
           $result = $conn->query($sql);
 //Store the results in an array
+          if(mysqli_num_rows( $result)==1)
+         {
          $arr = array();
          while ($row = mysqli_fetch_assoc($result)) {
           ?>
@@ -149,21 +151,36 @@
          </div>
         <div class="card-footer text-muted">
             <div class="row">
+            <?php if ($row['status'] == 'Available') { ?>
       <form class="col-md-6" action="phpScripts/userOparation.php" method="post">
             <input type="text" value="request" name="type" hidden>
             <input type="text" value="<?php echo  $row['book_ID']; ?>" name="book_ID" hidden>
         <button   class="btn btn-outline-secondary" type="submit">Request For Book </button>
       </form>
+      <?php } ?>
+      <?php if ($row['reserver'] == 'none') { ?>    
       <form class="col-md-6" action="phpScripts/userOparation.php" method="post">
             <input type="text" value="reserve" name="type" hidden>
             <input type="text" value="<?php echo  $row['book_ID']; ?>" name="book_ID" hidden>
         <button   class="btn btn-outline-secondary" type="submit">Reserve Book </button>
       </form>
+        <?php } ?>
         </div>
           </div>
         </div>
 
-      <?php } }?>
+      <?php } }
+      else {   ?>
+        <div class="card-header">
+         <h5 > NO BOOKS FOUND </h5>
+        </div>
+
+
+         <?php }
+
+
+
+    }?>
 
 
 </div>
